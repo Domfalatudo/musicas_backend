@@ -13,6 +13,8 @@ const sql = mysql2.createPool({
   user: process.env.USUARIO_BANCO,
   password: process.env.SENHA_BANCO,
   database: process.env.NOME_BANCO,
+  port: Number(process.env.PORTA_BANCO) || 3306,
+  ssl: { rejectUnauthorized: false },
 });
 
 app.get("/", (request, response) => {
